@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | Luma Cart</title>
+  <meta name="description" content="Luma Cart product listing demo.">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      user_id: localStorage.getItem('luma_logged_in') === 'true' ? localStorage.getItem('luma_user_id') : null,
+      user_type: localStorage.getItem('luma_logged_in') === 'true' ? 'loggedin' : 'guest',
+      page_type: 'products_page'
+    });
+  </script>
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/app.js" defer></script>
+</head>
+<body data-page-type="products_page">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="announcement">Free shipping on orders over ₹2,000</div>
+<header class="site-header">
+  <div class="container header-row">
+    <a class="brand" href="index.html" data-header-link="logo" data-header-position="left" data-page-name="products_page">LUMA</a>
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav-item">
+        <a class="nav-link" href="products.html?category=New%20Arrivals" data-menu-click data-page-name="products_page" data-main-menu-category="Shop" data-main-menu-sub-category="Featured" data-main-menu-tab="New Arrivals">Shop ▾</a>
+        <div class="dropdown">
+          <a href="products.html?category=New%20Arrivals" data-menu-click data-page-name="products_page" data-main-menu-category="Shop" data-main-menu-sub-category="Featured" data-main-menu-tab="New Arrivals">New Arrivals</a>
+          <a href="products.html?category=Apparel" data-menu-click data-page-name="products_page" data-main-menu-category="Shop" data-main-menu-sub-category="Apparel" data-main-menu-tab="All Apparel">Apparel</a>
+          <a href="products.html?category=Home" data-menu-click data-page-name="products_page" data-main-menu-category="Shop" data-main-menu-sub-category="Home" data-main-menu-tab="All Home">Home</a>
+          <a href="products.html?category=Accessories" data-menu-click data-page-name="products_page" data-main-menu-category="Shop" data-main-menu-sub-category="Accessories" data-main-menu-tab="All Accessories">Accessories</a>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="index.html#featured" data-menu-click data-page-name="products_page" data-main-menu-category="Explore" data-main-menu-sub-category="Collections" data-main-menu-tab="Featured">Featured</a></div>
+      <div class="nav-item"><a class="nav-link" href="index.html#about" data-menu-click data-page-name="products_page" data-main-menu-category="Explore" data-main-menu-sub-category="Brand" data-main-menu-tab="About Luma">About</a></div>
+    </nav>
+    <div class="header-actions">
+      <a class="header-link optional-link" href="index.html" data-header-link="stores" data-header-position="right" data-page-name="products_page">Stores</a>
+      <a class="header-link" href="account.html" data-header-link="account" data-header-position="right" data-page-name="products_page">Account</a>
+      <a class="header-link optional-link" href="products.html" data-header-link="wishlist" data-header-position="right" data-page-name="products_page">Wishlist</a>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="page-hero"><div class="container"><span class="kicker">Shop</span><h1>All essentials</h1><p class="muted" id="resultLabel">Browse the demo catalog.</p></div></section>
+  <section class="section" style="padding-top:10px;"><div class="container">
+    <div class="filter-row">
+      <a class="filter" href="products.html">All</a>
+      <a class="filter" href="products.html?category=Apparel">Apparel</a>
+      <a class="filter" href="products.html?category=Home">Home</a>
+      <a class="filter" href="products.html?category=Accessories">Accessories</a>
+      <a class="filter" href="products.html?category=New%20Arrivals">New Arrivals</a>
+    </div>
+    <div class="grid-4" id="productGrid"></div>
+  </div></section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><div class="brand">LUMA</div><p style="color:#bcb5a6;font-size:14px;max-width:280px;">Analytics-ready storefront demo.</p></div>
+    <div><p class="footer-title">Useful Links</p><a class="footer-link" href="products.html" data-footer-link="Shipping" data-footer-position="1" data-footer-section="Useful Links" data-page-name="products_page">Shipping</a><a class="footer-link" href="products.html" data-footer-link="Returns" data-footer-position="2" data-footer-section="Useful Links" data-page-name="products_page">Returns</a></div>
+    <div><p class="footer-title">Information</p><a class="footer-link" href="index.html#about" data-footer-link="About Us" data-footer-position="1" data-footer-section="Information" data-page-name="products_page">About Us</a><a class="footer-link" href="account.html" data-footer-link="Account" data-footer-position="2" data-footer-section="Information" data-page-name="products_page">Account</a></div>
+    <div><p class="footer-title">Contact Us</p><a class="footer-link" href="mailto:hello@example.com" data-footer-link="Email" data-footer-position="1" data-footer-section="Contact Us" data-page-name="products_page">Email</a></div>
+  </div>
+  <div class="footer-bottom"><div class="container">© 2026 Luma Cart demo</div></div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luma Cart | Everyday goods, thoughtfully chosen</title>
+  <meta name="description" content="A simple ecommerce demo website for GA4 and GTM testing.">
+
+  <!-- dataLayer: keep this before the GTM container loader -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      user_id: localStorage.getItem('luma_logged_in') === 'true' ? localStorage.getItem('luma_user_id') : null,
+      user_type: localStorage.getItem('luma_logged_in') === 'true' ? 'loggedin' : 'guest',
+      page_type: 'homepage'
+    });
+  </script>
+
+  <!-- Google Tag Manager: replace GTM-XXXXXXX with your container ID -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/app.js" defer></script>
+</head>
+<body data-page-type="homepage">
+  <!-- Google Tag Manager (noscript): replace GTM-XXXXXXX -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="announcement">Free shipping on orders over ₹2,000</div>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="index.html" data-header-link="logo" data-header-position="left" data-page-name="homepage">LUMA</a>
+      <nav class="nav" aria-label="Main navigation">
+        <div class="nav-item">
+          <a class="nav-link" href="products.html?category=New%20Arrivals" data-menu-click data-page-name="homepage" data-main-menu-category="Shop" data-main-menu-sub-category="Featured" data-main-menu-tab="New Arrivals">Shop ▾</a>
+          <div class="dropdown">
+            <a href="products.html?category=New%20Arrivals" data-menu-click data-page-name="homepage" data-main-menu-category="Shop" data-main-menu-sub-category="Featured" data-main-menu-tab="New Arrivals">New Arrivals</a>
+            <a href="products.html?category=Apparel" data-menu-click data-page-name="homepage" data-main-menu-category="Shop" data-main-menu-sub-category="Apparel" data-main-menu-tab="All Apparel">Apparel</a>
+            <a href="products.html?category=Home" data-menu-click data-page-name="homepage" data-main-menu-category="Shop" data-main-menu-sub-category="Home" data-main-menu-tab="All Home">Home</a>
+            <a href="products.html?category=Accessories" data-menu-click data-page-name="homepage" data-main-menu-category="Shop" data-main-menu-sub-category="Accessories" data-main-menu-tab="All Accessories">Accessories</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="#featured" data-menu-click data-page-name="homepage" data-main-menu-category="Explore" data-main-menu-sub-category="Collections" data-main-menu-tab="Featured">Featured</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="#about" data-menu-click data-page-name="homepage" data-main-menu-category="Explore" data-main-menu-sub-category="Brand" data-main-menu-tab="About Luma">About</a>
+        </div>
+      </nav>
+      <div class="header-actions">
+        <a class="header-link optional-link" href="products.html" data-header-link="stores" data-header-position="right" data-page-name="homepage">Stores</a>
+        <a class="header-link" href="account.html" data-header-link="account" data-header-position="right" data-page-name="homepage">Account</a>
+        <a class="header-link optional-link" href="products.html" data-header-link="wishlist" data-header-position="right" data-page-name="homepage">Wishlist</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="kicker">Everyday essentials</span>
+          <h1>Quiet design.<br>Useful things.</h1>
+          <p>A simple storefront for testing GA4 and GTM implementations across navigation, search, suggestions, header links and footer interactions.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;">
+            <a class="btn" href="products.html?category=New%20Arrivals" data-menu-click data-page-name="homepage" data-main-menu-category="Shop" data-main-menu-sub-category="Featured" data-main-menu-tab="New Arrivals">Explore new arrivals</a>
+            <a class="btn btn-secondary" href="login.html" data-header-link="login" data-header-position="hero" data-page-name="homepage">Try demo login</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Decorative product illustration"><div class="hero-art-inner"></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="featured">
+      <div class="container">
+        <div class="section-header">
+          <div><span class="kicker">Curated picks</span><h2>Featured essentials</h2></div>
+          <a class="muted" href="products.html">View all →</a>
+        </div>
+        <div class="grid-4" id="productGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="card" style="padding:28px;">
+          <span class="kicker">Search demo</span>
+          <h2 style="font-family:Georgia,serif;font-weight:500;margin:8px 0 10px;">Find something useful</h2>
+          <div class="search-shell">
+            <form class="search-form" id="siteSearchForm" role="search">
+              <input id="siteSearchInput" name="q" type="search" placeholder="Search shirts, mugs, bags..." autocomplete="off" aria-label="Search products">
+              <button class="btn" type="submit">Search</button>
+            </form>
+            <div class="suggestions" id="searchSuggestions"></div>
+          </div>
+          <p class="form-note" style="margin-top:10px;">For production analytics, avoid sending personally identifiable information in search terms.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand">LUMA</div>
+        <p style="color:#bcb5a6;font-size:14px;max-width:280px;">A small ecommerce-style demo built for analytics implementation and QA.</p>
+      </div>
+      <div>
+        <p class="footer-title">Useful Links</p>
+        <a class="footer-link" href="products.html" data-footer-link="Shipping" data-footer-position="1" data-footer-section="Useful Links" data-page-name="homepage">Shipping</a>
+        <a class="footer-link" href="products.html" data-footer-link="Returns" data-footer-position="2" data-footer-section="Useful Links" data-page-name="homepage">Returns</a>
+        <a class="footer-link" href="products.html" data-footer-link="Sizing" data-footer-position="3" data-footer-section="Useful Links" data-page-name="homepage">Sizing</a>
+      </div>
+      <div>
+        <p class="footer-title">Information</p>
+        <a class="footer-link" href="#about" data-footer-link="About Us" data-footer-position="1" data-footer-section="Information" data-page-name="homepage">About Us</a>
+        <a class="footer-link" href="account.html" data-footer-link="Account" data-footer-position="2" data-footer-section="Information" data-page-name="homepage">Account</a>
+        <a class="footer-link" href="login.html" data-footer-link="Login" data-footer-position="3" data-footer-section="Information" data-page-name="homepage">Login</a>
+      </div>
+      <div>
+        <p class="footer-title">Contact Us</p>
+        <a class="footer-link" href="mailto:hello@example.com" data-footer-link="Email" data-footer-position="1" data-footer-section="Contact Us" data-page-name="homepage">Email</a>
+        <a class="footer-link" href="tel:+910000000000" data-footer-link="Phone" data-footer-position="2" data-footer-section="Contact Us" data-page-name="homepage">Phone</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="container">© 2026 Luma Cart demo</div></div>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

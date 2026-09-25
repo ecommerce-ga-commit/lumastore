@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account | Luma Cart</title>
+  <meta name="description" content="Demo account page showing GA4 User-ID state.">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      user_id: localStorage.getItem('luma_logged_in') === 'true' ? localStorage.getItem('luma_user_id') : null,
+      user_type: localStorage.getItem('luma_logged_in') === 'true' ? 'loggedin' : 'guest',
+      page_type: 'account_page'
+    });
+  </script>
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/app.js" defer></script>
+</head>
+<body data-page-type="account_page">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="announcement">Account area · demo only</div>
+<header class="site-header"><div class="container header-row">
+  <a class="brand" href="index.html" data-header-link="logo" data-header-position="left" data-page-name="account_page">LUMA</a>
+  <nav class="nav" aria-label="Main navigation"><div class="nav-item"><a class="nav-link" href="products.html" data-menu-click data-page-name="account_page" data-main-menu-category="Shop" data-main-menu-sub-category="All Products" data-main-menu-tab="Shop">Shop</a></div><div class="nav-item"><a class="nav-link" href="index.html#about" data-menu-click data-page-name="account_page" data-main-menu-category="Explore" data-main-menu-sub-category="Brand" data-main-menu-tab="About Luma">About</a></div></nav>
+  <div class="header-actions"><a class="header-link" href="account.html" data-header-link="account" data-header-position="right" data-page-name="account_page">Account</a></div>
+</div></header>
+<main class="container" style="padding:48px 0 0;"><span class="kicker">My account</span><h1 style="font-size:52px;">Account</h1><div id="accountPanel"></div></main>
+<footer class="site-footer"><div class="container footer-grid">
+  <div><div class="brand">LUMA</div><p style="color:#bcb5a6;font-size:14px;max-width:280px;">Persistent demo identity for analytics QA.</p></div>
+  <div><p class="footer-title">Useful Links</p><a class="footer-link" href="products.html" data-footer-link="Shipping" data-footer-position="1" data-footer-section="Useful Links" data-page-name="account_page">Shipping</a><a class="footer-link" href="products.html" data-footer-link="Returns" data-footer-position="2" data-footer-section="Useful Links" data-page-name="account_page">Returns</a></div>
+  <div><p class="footer-title">Information</p><a class="footer-link" href="index.html#about" data-footer-link="About Us" data-footer-position="1" data-footer-section="Information" data-page-name="account_page">About Us</a></div>
+  <div><p class="footer-title">Contact Us</p><a class="footer-link" href="mailto:hello@example.com" data-footer-link="Email" data-footer-position="1" data-footer-section="Contact Us" data-page-name="account_page">Email</a></div>
+</div><div class="footer-bottom"><div class="container">© 2026 Luma Cart demo</div></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

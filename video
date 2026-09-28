@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Video | Luma Cart</title>
+  <meta name="description" content="Luma Cart video page.">
+
+  <!-- dataLayer: keep this before the GTM container loader -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      user_id: localStorage.getItem('luma_logged_in') === 'true'
+        ? localStorage.getItem('luma_user_id')
+        : null,
+      user_type: localStorage.getItem('luma_logged_in') === 'true'
+        ? 'loggedin'
+        : 'guest',
+      page_type: 'video_page'
+    });
+  </script>
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KWVHQDHK');</script>
+<!-- End Google Tag Manager -->
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/app.js" defer></script>
+</head>
+
+<body data-page-type="video_page">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+
+  <div class="announcement">
+    Free shipping on orders over ₹2,000
+  </div>
+
+  <header class="site-header">
+    <div class="container header-row">
+
+      <a
+        class="brand"
+        href="index.html"
+        data-header-link="logo"
+        data-header-position="left"
+        data-page-name="video_page">
+        LUMA
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+
+        <div class="nav-item">
+          <a
+            class="nav-link"
+            href="products.html"
+            data-menu-click
+            data-page-name="video_page"
+            data-main-menu-category="Shop"
+            data-main-menu-sub-category="All Products"
+            data-main-menu-tab="Shop">
+            Shop
+          </a>
+        </div>
+
+        <div class="nav-item">
+          <a
+            class="nav-link"
+            href="index.html#featured"
+            data-menu-click
+            data-page-name="video_page"
+            data-main-menu-category="Explore"
+            data-main-menu-sub-category="Collections"
+            data-main-menu-tab="Featured">
+            Featured
+          </a>
+        </div>
+
+        <div class="nav-item">
+          <a
+            class="nav-link"
+            href="index.html#about"
+            data-menu-click
+            data-page-name="video_page"
+            data-main-menu-category="Explore"
+            data-main-menu-sub-category="Brand"
+            data-main-menu-tab="About Luma">
+            About
+          </a>
+        </div>
+
+      </nav>
+
+      <div class="header-actions">
+        <a
+          class="header-link"
+          href="account.html"
+          data-header-link="account"
+          data-header-position="right"
+          data-page-name="video_page">
+          Account
+        </a>
+
+        <a
+          class="header-link optional-link"
+          href="products.html"
+          data-header-link="wishlist"
+          data-header-position="right"
+          data-page-name="video_page">
+          Wishlist
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <span class="kicker">Watch</span>
+        <h1>Featured Video</h1>
+        <p class="muted">
+          Watch our featured video below.
+        </p>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="container">
+
+        <div class="card" style="padding:28px;">
+
+          <div
+            style="
+              position:relative;
+              width:100%;
+              padding-bottom:56.25%;
+              height:0;
+              overflow:hidden;
+              border-radius:12px;
+            ">
+
+            <iframe
+              src="https://www.youtube.com/embed/mFRucDBBv80"
+              title="Luma Cart YouTube Video"
+              style="
+                position:absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                border:0;
+              "
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <div class="container footer-grid">
+
+      <div>
+        <div class="brand">LUMA</div>
+        <p style="color:#bcb5a6;font-size:14px;max-width:280px;">
+          A small ecommerce-style demo built for analytics implementation and QA.
+        </p>
+      </div>
+
+      <div>
+        <p class="footer-title">Useful Links</p>
+
+        <a
+          class="footer-link"
+          href="products.html"
+          data-footer-link="Shipping"
+          data-footer-position="1"
+          data-footer-section="Useful Links"
+          data-page-name="video_page">
+          Shipping
+        </a>
+
+        <a
+          class="footer-link"
+          href="products.html"
+          data-footer-link="Returns"
+          data-footer-position="2"
+          data-footer-section="Useful Links"
+          data-page-name="video_page">
+          Returns
+        </a>
+      </div>
+
+      <div>
+        <p class="footer-title">Information</p>
+
+        <a
+          class="footer-link"
+          href="index.html#about"
+          data-footer-link="About Us"
+          data-footer-position="1"
+          data-footer-section="Information"
+          data-page-name="video_page">
+          About Us
+        </a>
+
+        <a
+          class="footer-link"
+          href="account.html"
+          data-footer-link="Account"
+          data-footer-position="2"
+          data-footer-section="Information"
+          data-page-name="video_page">
+          Account
+        </a>
+
+        <a
+          class="footer-link"
+          href="login.html"
+          data-footer-link="Login"
+          data-footer-position="3"
+          data-footer-section="Information"
+          data-page-name="video_page">
+          Login
+        </a>
+      </div>
+
+      <div>
+        <p class="footer-title">Contact Us</p>
+
+        <a
+          class="footer-link"
+          href="mailto:hello@example.com"
+          data-footer-link="Email"
+          data-footer-position="1"
+          data-footer-section="Contact Us"
+          data-page-name="video_page">
+          Email
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        © 2026 Luma Cart demo
+      </div>
+    </div>
+
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>

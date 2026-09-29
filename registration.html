@@ -1,235 +1,504 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
   <title>Luma Cart | Create Account</title>
-  <meta name="description" content="Create a Luma Cart demo account.">
+
+  <meta
+    name="description"
+    content="Create a Luma Cart demo account for GA4 and GTM testing.">
+
 
   <!-- =========================================================
-       dataLayer
-       Keep this BEFORE the GTM container loader
+       INITIAL DATALAYER
        ========================================================= -->
+
   <script>
+
     window.dataLayer = window.dataLayer || [];
 
     window.dataLayer.push({
-      user_id: localStorage.getItem('luma_logged_in') === 'true'
-        ? localStorage.getItem('luma_user_id')
-        : null,
 
-      user_type: localStorage.getItem('luma_logged_in') === 'true'
-        ? 'loggedin'
-        : 'guest',
+      user_id:
+        localStorage.getItem('luma_logged_in') === 'true'
+          ? localStorage.getItem('luma_user_id')
+          : null,
+
+      user_type:
+        localStorage.getItem('luma_logged_in') === 'true'
+          ? 'loggedin'
+          : 'guest',
 
       page_type: 'registration'
+
     });
+
   </script>
 
 
   <!-- =========================================================
-       Google Tag Manager
+       GOOGLE TAG MANAGER
        ========================================================= -->
+
   <script>
+
     (function(w,d,s,l,i){
+
       w[l]=w[l]||[];
+
       w[l].push({
         'gtm.start': new Date().getTime(),
         event:'gtm.js'
       });
 
-      var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),
-          dl=l!='dataLayer'?'&l='+l:'';
+      var f=d.getElementsByTagName(s)[0];
+
+      var j=d.createElement(s);
+
+      var dl=l!='dataLayer'
+        ? '&l='+l
+        : '';
 
       j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+
+      j.src=
+        'https://www.googletagmanager.com/gtm.js?id='
+        + i
+        + dl;
+
       f.parentNode.insertBefore(j,f);
+
     })(window,document,'script','dataLayer','GTM-KWVHQDHK');
+
   </script>
 
   <!-- End Google Tag Manager -->
 
 
+  <!-- Existing Luma CSS -->
+
+  <link
+    rel="stylesheet"
+    href="assets/css/style.css">
+
+
   <!-- =========================================================
-       Existing Luma stylesheet
+       REGISTRATION PAGE CSS
        ========================================================= -->
-  <link rel="stylesheet" href="assets/css/style.css">
 
   <style>
-    /* Registration page */
 
     .registration-section {
-      min-height: calc(100vh - 160px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 20px;
-      background: #f5f2eb;
+
+      min-height:
+        calc(100vh - 160px);
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      padding:60px 20px;
+
+      background:#f5f2eb;
+
     }
+
 
     .registration-card {
-      width: 100%;
-      max-width: 500px;
-      background: #ffffff;
-      padding: 42px;
-      border-radius: 12px;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+
+      width:100%;
+
+      max-width:520px;
+
+      background:#ffffff;
+
+      padding:42px;
+
+      border-radius:12px;
+
+      box-shadow:
+        0 10px 35px rgba(0,0,0,0.08);
+
     }
+
 
     .registration-card h1 {
-      font-family: Georgia, serif;
-      font-weight: 500;
-      font-size: 38px;
-      margin: 8px 0 10px;
+
+      font-family:Georgia,serif;
+
+      font-weight:500;
+
+      font-size:38px;
+
+      margin:
+        8px 0 10px;
+
     }
 
-    .registration-card .intro {
-      color: #666;
-      margin-bottom: 30px;
-      line-height: 1.6;
+
+    .registration-intro {
+
+      color:#666;
+
+      line-height:1.6;
+
+      margin-bottom:30px;
+
     }
+
 
     .form-group {
-      margin-bottom: 20px;
+
+      margin-bottom:20px;
+
     }
+
 
     .form-group label {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 8px;
+
+      display:block;
+
+      font-size:14px;
+
+      font-weight:600;
+
+      margin-bottom:8px;
+
     }
 
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 13px 14px;
-      border: 1px solid #d5d0c5;
-      border-radius: 6px;
-      font-size: 15px;
-      background: #fff;
+
+    .form-group input {
+
+      width:100%;
+
+      box-sizing:border-box;
+
+      padding:13px 14px;
+
+      border:
+        1px solid #d5d0c5;
+
+      border-radius:6px;
+
+      font-size:15px;
+
+      background:#fff;
+
     }
 
-    .form-group input:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: #222;
+
+    .form-group input:focus {
+
+      outline:none;
+
+      border-color:#222;
+
     }
+
+
+    .form-group input.error {
+
+      border-color:#a33;
+
+      background:#fff8f8;
+
+    }
+
+
+    .field-error {
+
+      display:none;
+
+      color:#a33;
+
+      font-size:12px;
+
+      margin-top:6px;
+
+    }
+
+
+    .field-error.show {
+
+      display:block;
+
+    }
+
 
     .signup-methods {
-      margin-top: 28px;
-      margin-bottom: 24px;
+
+      margin-top:28px;
+
+      margin-bottom:24px;
+
     }
+
 
     .signup-methods-title {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 12px;
+
+      display:block;
+
+      font-size:14px;
+
+      font-weight:600;
+
+      margin-bottom:12px;
+
     }
+
 
     .method-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
+
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap:10px;
+
     }
+
 
     .method-button {
-      padding: 12px 8px;
-      border: 1px solid #d5d0c5;
-      border-radius: 6px;
-      background: #fff;
-      cursor: pointer;
-      font-size: 14px;
-      transition: all 0.2s ease;
+
+      padding:12px 8px;
+
+      border:
+        1px solid #d5d0c5;
+
+      border-radius:6px;
+
+      background:#fff;
+
+      cursor:pointer;
+
+      font-size:14px;
+
+      transition:
+        all 0.2s ease;
+
     }
+
 
     .method-button:hover {
-      border-color: #222;
+
+      border-color:#222;
+
     }
+
 
     .method-button.active {
-      background: #222;
-      color: #fff;
-      border-color: #222;
+
+      background:#222;
+
+      color:#fff;
+
+      border-color:#222;
+
     }
+
+
+    .method-error {
+
+      display:none;
+
+      color:#a33;
+
+      font-size:12px;
+
+      margin-top:8px;
+
+    }
+
+
+    .method-error.show {
+
+      display:block;
+
+    }
+
 
     .registration-submit {
-      width: 100%;
-      margin-top: 5px;
+
+      width:100%;
+
+      margin-top:5px;
+
     }
+
+
+    .registration-submit:disabled {
+
+      opacity:.6;
+
+      cursor:not-allowed;
+
+    }
+
 
     .form-note {
-      margin-top: 16px;
-      font-size: 12px;
-      color: #777;
-      line-height: 1.5;
+
+      margin-top:16px;
+
+      font-size:12px;
+
+      color:#777;
+
+      line-height:1.5;
+
     }
+
 
     .login-link {
-      text-align: center;
-      margin-top: 24px;
-      font-size: 14px;
+
+      text-align:center;
+
+      margin-top:24px;
+
+      font-size:14px;
+
     }
+
 
     .login-link a {
-      color: inherit;
-      font-weight: 600;
+
+      color:inherit;
+
+      font-weight:600;
+
     }
+
 
     .required {
-      color: #a33;
+
+      color:#a33;
+
     }
 
-    @media (max-width: 600px) {
+
+    .registration-status {
+
+      display:none;
+
+      margin-bottom:20px;
+
+      padding:12px 14px;
+
+      border-radius:6px;
+
+      font-size:14px;
+
+      line-height:1.5;
+
+    }
+
+
+    .registration-status.error {
+
+      display:block;
+
+      background:#fff1f1;
+
+      color:#8a2222;
+
+      border:
+        1px solid #e4bcbc;
+
+    }
+
+
+    .registration-status.success {
+
+      display:block;
+
+      background:#f1f8f1;
+
+      color:#236b2d;
+
+      border:
+        1px solid #bdd8c1;
+
+    }
+
+
+    @media(max-width:600px) {
+
       .registration-card {
-        padding: 28px 22px;
+
+        padding:28px 22px;
+
       }
 
       .registration-card h1 {
-        font-size: 32px;
+
+        font-size:32px;
+
       }
 
       .method-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:1fr;
+
       }
+
     }
+
   </style>
+
 </head>
 
 
 <body data-page-type="registration">
 
+
   <!-- =========================================================
-       Google Tag Manager (noscript)
+       GTM NOSCRIPT
        ========================================================= -->
+
   <noscript>
+
     <iframe
       src="https://www.googletagmanager.com/ns.html?id=GTM-KWVHQDHK"
       height="0"
       width="0"
-      style="display:none;visibility:hidden">
+      style="
+        display:none;
+        visibility:hidden;
+      ">
     </iframe>
+
   </noscript>
 
 
   <!-- =========================================================
-       Announcement
+       ANNOUNCEMENT
        ========================================================= -->
+
   <div class="announcement">
+
     Free shipping on orders over ₹2,000
+
   </div>
 
 
   <!-- =========================================================
-       Header
+       HEADER
        ========================================================= -->
+
   <header class="site-header">
+
     <div class="container header-row">
+
 
       <a
         class="brand"
@@ -237,12 +506,19 @@
         data-header-link="logo"
         data-header-position="left"
         data-page-name="registration">
+
         LUMA
+
       </a>
 
-      <nav class="nav" aria-label="Main navigation">
+
+      <nav
+        class="nav"
+        aria-label="Main navigation">
+
 
         <div class="nav-item">
+
           <a
             class="nav-link"
             href="products.html?category=New%20Arrivals"
@@ -251,10 +527,14 @@
             data-main-menu-category="Shop"
             data-main-menu-sub-category="Featured"
             data-main-menu-tab="New Arrivals">
+
             Shop ▾
+
           </a>
 
+
           <div class="dropdown">
+
             <a
               href="products.html?category=New%20Arrivals"
               data-menu-click
@@ -262,8 +542,11 @@
               data-main-menu-category="Shop"
               data-main-menu-sub-category="Featured"
               data-main-menu-tab="New Arrivals">
+
               New Arrivals
+
             </a>
+
 
             <a
               href="products.html?category=Apparel"
@@ -272,8 +555,11 @@
               data-main-menu-category="Shop"
               data-main-menu-sub-category="Apparel"
               data-main-menu-tab="All Apparel">
+
               Apparel
+
             </a>
+
 
             <a
               href="products.html?category=Home"
@@ -282,8 +568,11 @@
               data-main-menu-category="Shop"
               data-main-menu-sub-category="Home"
               data-main-menu-tab="All Home">
+
               Home
+
             </a>
+
 
             <a
               href="products.html?category=Accessories"
@@ -292,12 +581,18 @@
               data-main-menu-category="Shop"
               data-main-menu-sub-category="Accessories"
               data-main-menu-tab="All Accessories">
+
               Accessories
+
             </a>
+
           </div>
+
         </div>
 
+
         <div class="nav-item">
+
           <a
             class="nav-link"
             href="index.html#featured"
@@ -306,9 +601,13 @@
             data-main-menu-category="Explore"
             data-main-menu-sub-category="Collections"
             data-main-menu-tab="Featured">
+
             Featured
+
           </a>
+
         </div>
+
 
         <a
           class="nav-link"
@@ -318,10 +617,14 @@
           data-main-menu-category="Video Source"
           data-main-menu-sub-category="Video"
           data-main-menu-tab="Video Source">
+
           Video Source
+
         </a>
 
+
         <div class="nav-item">
+
           <a
             class="nav-link"
             href="index.html#about"
@@ -330,8 +633,11 @@
             data-main-menu-category="Explore"
             data-main-menu-sub-category="Brand"
             data-main-menu-tab="About Luma">
+
             About
+
           </a>
+
         </div>
 
       </nav>
@@ -339,14 +645,18 @@
 
       <div class="header-actions">
 
+
         <a
           class="header-link"
           href="products.html"
           data-header-link="stores"
           data-header-position="right"
           data-page-name="registration">
+
           Stores
+
         </a>
+
 
         <a
           class="header-link"
@@ -354,8 +664,11 @@
           data-header-link="account"
           data-header-position="right"
           data-page-name="registration">
+
           Account
+
         </a>
+
 
         <a
           class="header-link"
@@ -363,45 +676,82 @@
           data-header-link="wishlist"
           data-header-position="right"
           data-page-name="registration">
+
           Wishlist
+
         </a>
+
 
       </div>
 
     </div>
+
   </header>
 
 
   <!-- =========================================================
-       Registration Form
+       REGISTRATION
        ========================================================= -->
+
   <main>
 
     <section class="registration-section">
 
+
       <div class="registration-card">
 
+
         <span class="kicker">
+
           Create your account
+
         </span>
 
+
         <h1>
+
           Sign up
+
         </h1>
 
-        <p class="intro">
-          Create a Luma account to continue shopping and manage your preferences.
+
+        <p class="registration-intro">
+
+          Create a Luma account to continue shopping
+          and manage your preferences.
+
         </p>
 
 
-        <form id="registrationForm" novalidate>
+        <!-- Status message -->
 
-          <!-- Username -->
+        <div
+          id="registrationStatus"
+          class="registration-status"
+          role="alert">
+        </div>
+
+
+        <!-- =====================================================
+             FORM
+             ===================================================== -->
+
+        <form
+          id="registrationForm"
+          novalidate>
+
+
+          <!-- USERNAME -->
+
           <div class="form-group">
 
             <label for="username">
-              Username <span class="required">*</span>
+
+              Username
+              <span class="required">*</span>
+
             </label>
+
 
             <input
               id="username"
@@ -411,15 +761,29 @@
               autocomplete="username"
               required>
 
+
+            <div
+              id="usernameError"
+              class="field-error">
+
+              Please enter a username.
+
+            </div>
+
           </div>
 
 
-          <!-- Email -->
+          <!-- EMAIL -->
+
           <div class="form-group">
 
             <label for="email">
-              Email <span class="required">*</span>
+
+              Email
+              <span class="required">*</span>
+
             </label>
+
 
             <input
               id="email"
@@ -429,15 +793,29 @@
               autocomplete="email"
               required>
 
+
+            <div
+              id="emailError"
+              class="field-error">
+
+              Please enter a valid email address.
+
+            </div>
+
           </div>
 
 
-          <!-- Phone -->
+          <!-- PHONE -->
+
           <div class="form-group">
 
             <label for="phone">
-              Phone Number <span class="required">*</span>
+
+              Phone Number
+              <span class="required">*</span>
+
             </label>
+
 
             <input
               id="phone"
@@ -447,71 +825,122 @@
               autocomplete="tel"
               required>
 
+
+            <div
+              id="phoneError"
+              class="field-error">
+
+              Please enter a valid phone number.
+
+            </div>
+
           </div>
 
 
-          <!-- Sign Up Method -->
+          <!-- ===================================================
+               SIGN UP METHOD
+               =================================================== -->
+
           <div class="signup-methods">
 
             <span class="signup-methods-title">
-              Sign-up method <span class="required">*</span>
+
+              Sign-up method
+              <span class="required">*</span>
+
             </span>
 
+
             <div class="method-grid">
+
 
               <button
                 type="button"
                 class="method-button"
                 data-signup-method="Email">
+
                 Email
+
               </button>
+
 
               <button
                 type="button"
                 class="method-button"
                 data-signup-method="Google">
+
                 Google
+
               </button>
+
 
               <button
                 type="button"
                 class="method-button"
                 data-signup-method="Facebook">
+
                 Facebook
+
               </button>
+
 
             </div>
 
-            <!-- Hidden field to store selected method -->
+
             <input
               type="hidden"
               id="signupMethod"
               name="signup_method"
               value="">
 
+
+            <div
+              id="methodError"
+              class="method-error">
+
+              Please select a sign-up method.
+
+            </div>
+
           </div>
 
 
-          <!-- Submit -->
+          <!-- SUBMIT -->
+
           <button
             type="submit"
+            id="registrationSubmit"
             class="btn registration-submit">
+
             Create Account
+
           </button>
 
 
           <p class="form-note">
+
             Demo registration page for GA4 and GTM testing.
-            Personal information entered here is not sent to Google Analytics.
+            User information is hashed before being placed
+            into the dataLayer.
+
           </p>
+
 
         </form>
 
 
         <div class="login-link">
+
           Already have an account?
-          <a href="login.html">Log in</a>
+
+          <a href="login.html">
+
+            Log in
+
+          </a>
+
         </div>
+
 
       </div>
 
@@ -521,23 +950,46 @@
 
 
   <!-- =========================================================
-       Footer
+       FOOTER
        ========================================================= -->
+
   <footer class="site-footer">
 
     <div class="container footer-grid">
 
-      <div>
-        <div class="brand">LUMA</div>
 
-        <p style="color:#bcb5a6;font-size:14px;max-width:280px;">
-          A small ecommerce-style demo built for analytics implementation and QA.
+      <div>
+
+        <div class="brand">
+
+          LUMA
+
+        </div>
+
+
+        <p
+          style="
+            color:#bcb5a6;
+            font-size:14px;
+            max-width:280px;
+          ">
+
+          A small ecommerce-style demo built
+          for analytics implementation and QA.
+
         </p>
+
       </div>
 
 
       <div>
-        <p class="footer-title">Useful Links</p>
+
+        <p class="footer-title">
+
+          Useful Links
+
+        </p>
+
 
         <a
           class="footer-link"
@@ -546,8 +998,11 @@
           data-footer-position="1"
           data-footer-section="Useful Links"
           data-page-name="registration">
+
           Shipping
+
         </a>
+
 
         <a
           class="footer-link"
@@ -556,8 +1011,11 @@
           data-footer-position="2"
           data-footer-section="Useful Links"
           data-page-name="registration">
+
           Returns
+
         </a>
+
 
         <a
           class="footer-link"
@@ -566,13 +1024,22 @@
           data-footer-position="3"
           data-footer-section="Useful Links"
           data-page-name="registration">
+
           Sizing
+
         </a>
+
       </div>
 
 
       <div>
-        <p class="footer-title">Information</p>
+
+        <p class="footer-title">
+
+          Information
+
+        </p>
+
 
         <a
           class="footer-link"
@@ -581,8 +1048,11 @@
           data-footer-position="1"
           data-footer-section="Information"
           data-page-name="registration">
+
           About Us
+
         </a>
+
 
         <a
           class="footer-link"
@@ -591,8 +1061,11 @@
           data-footer-position="2"
           data-footer-section="Information"
           data-page-name="registration">
+
           Account
+
         </a>
+
 
         <a
           class="footer-link"
@@ -601,13 +1074,22 @@
           data-footer-position="3"
           data-footer-section="Information"
           data-page-name="registration">
+
           Login
+
         </a>
+
       </div>
 
 
       <div>
-        <p class="footer-title">Contact Us</p>
+
+        <p class="footer-title">
+
+          Contact Us
+
+        </p>
+
 
         <a
           class="footer-link"
@@ -616,8 +1098,11 @@
           data-footer-position="1"
           data-footer-section="Contact Us"
           data-page-name="registration">
+
           Email
+
         </a>
+
 
         <a
           class="footer-link"
@@ -626,17 +1111,25 @@
           data-footer-position="2"
           data-footer-section="Contact Us"
           data-page-name="registration">
+
           Phone
+
         </a>
+
       </div>
+
 
     </div>
 
 
     <div class="footer-bottom">
+
       <div class="container">
+
         © 2026 Luma Cart demo
+
       </div>
+
     </div>
 
   </footer>
@@ -651,180 +1144,927 @@
 
 
   <!-- =========================================================
-       Registration JavaScript
+       REGISTRATION JAVASCRIPT
        ========================================================= -->
+
   <script>
+
+    /*
+     * =========================================================
+     * ELEMENTS
+     * =========================================================
+     */
 
     const registrationForm =
       document.getElementById('registrationForm');
 
-    const methodButtons =
-      document.querySelectorAll('.method-button');
 
-    const signupMethod =
+    const usernameInput =
+      document.getElementById('username');
+
+
+    const emailInput =
+      document.getElementById('email');
+
+
+    const phoneInput =
+      document.getElementById('phone');
+
+
+    const signupMethodInput =
       document.getElementById('signupMethod');
 
 
-    /*
-     * ----------------------------------------------------------
-     * Select Sign-up Method
-     * ----------------------------------------------------------
-     */
+    const methodButtons =
+      document.querySelectorAll('.method-button');
 
-    methodButtons.forEach(function(button) {
 
-      button.addEventListener('click', function() {
+    const submitButton =
+      document.getElementById('registrationSubmit');
 
-        // Remove active state from all buttons
-        methodButtons.forEach(function(btn) {
-          btn.classList.remove('active');
-        });
 
-        // Activate clicked button
-        button.classList.add('active');
-
-        // Store selected method
-        signupMethod.value =
-          button.getAttribute('data-signup-method');
-
-      });
-
-    });
+    const statusBox =
+      document.getElementById('registrationStatus');
 
 
     /*
-     * ----------------------------------------------------------
-     * Registration Submit
-     * ----------------------------------------------------------
+     * =========================================================
+     * SHA-256 HASH FUNCTION
+     *
+     * Uses browser-native Web Crypto API.
+     * =========================================================
      */
 
-    registrationForm.addEventListener('submit', function(event) {
+    async function sha256(value) {
 
-      event.preventDefault();
+      const encoder =
+        new TextEncoder();
+
+      const data =
+        encoder.encode(value);
+
+      const hashBuffer =
+        await crypto.subtle.digest(
+          'SHA-256',
+          data
+        );
+
+      const hashArray =
+        Array.from(
+          new Uint8Array(hashBuffer)
+        );
+
+      return hashArray
+        .map(
+          byte =>
+            byte.toString(16).padStart(2,'0')
+        )
+        .join('');
+
+    }
 
 
-      const username =
-        document.getElementById('username').value.trim();
+    /*
+     * =========================================================
+     * NORMALIZATION
+     *
+     * Google recommends:
+     *
+     * - trim whitespace
+     * - lowercase text
+     * - E.164 phone format
+     *
+     * For this demo we normalize email/name directly.
+     * =========================================================
+     */
+
+    function normalizeText(value) {
+
+      return value
+        .trim()
+        .toLowerCase();
+
+    }
+
+
+    /*
+     * =========================================================
+     * PHONE NORMALIZATION
+     *
+     * Example:
+     *
+     * +91 98765 43210
+     *
+     * becomes:
+     *
+     * +919876543210
+     *
+     * =========================================================
+     */
+
+    function normalizePhone(value) {
+
+      let phone =
+        value.trim();
+
+      phone =
+        phone.replace(
+          /[\s()-]/g,
+          ''
+        );
+
+      /*
+       * If user enters:
+       *
+       * 9876543210
+       *
+       * assume India for this demo.
+       */
+
+      if (
+        phone.length === 10 &&
+        !phone.startsWith('+')
+      ) {
+
+        phone =
+          '+91' + phone;
+
+      }
+
+      return phone;
+
+    }
+
+
+    /*
+     * =========================================================
+     * SHOW ERROR
+     * =========================================================
+     */
+
+    function showFieldError(
+      input,
+      errorElement
+    ) {
+
+      input.classList.add('error');
+
+      errorElement.classList.add('show');
+
+    }
+
+
+    /*
+     * =========================================================
+     * CLEAR ERROR
+     * =========================================================
+     */
+
+    function clearFieldError(
+      input,
+      errorElement
+    ) {
+
+      input.classList.remove('error');
+
+      errorElement.classList.remove('show');
+
+    }
+
+
+    /*
+     * =========================================================
+     * STATUS MESSAGE
+     * =========================================================
+     */
+
+    function showStatus(
+      message,
+      type
+    ) {
+
+      statusBox.textContent =
+        message;
+
+      statusBox.className =
+        'registration-status ' + type;
+
+    }
+
+
+    /*
+     * =========================================================
+     * SIGN-UP METHOD SELECTION
+     * =========================================================
+     */
+
+    methodButtons.forEach(
+      function(button) {
+
+        button.addEventListener(
+          'click',
+          function() {
+
+
+            /*
+             * Remove active state
+             */
+
+            methodButtons.forEach(
+              function(btn) {
+
+                btn.classList.remove(
+                  'active'
+                );
+
+              }
+            );
+
+
+            /*
+             * Activate clicked button
+             */
+
+            button.classList.add(
+              'active'
+            );
+
+
+            /*
+             * Store selected method
+             */
+
+            signupMethodInput.value =
+              button.getAttribute(
+                'data-signup-method'
+              );
+
+
+            /*
+             * Clear method error
+             */
+
+            document
+              .getElementById('methodError')
+              .classList.remove('show');
+
+          }
+        );
+
+      }
+    );
+
+
+    /*
+     * =========================================================
+     * VALIDATION
+     * =========================================================
+     */
+
+    function validateForm() {
+
+      let isValid = true;
+
+
+      /*
+       * Username
+       */
+
+      clearFieldError(
+        usernameInput,
+        document.getElementById(
+          'usernameError'
+        )
+      );
+
+
+      if (
+        !usernameInput.value.trim()
+      ) {
+
+        showFieldError(
+          usernameInput,
+          document.getElementById(
+            'usernameError'
+          )
+        );
+
+        isValid = false;
+
+      }
+
+
+      /*
+       * Email
+       */
+
+      clearFieldError(
+        emailInput,
+        document.getElementById(
+          'emailError'
+        )
+      );
+
 
       const email =
-        document.getElementById('email').value.trim();
+        emailInput.value.trim();
+
+
+      const emailPattern =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+      if (
+        !email ||
+        !emailPattern.test(email)
+      ) {
+
+        showFieldError(
+          emailInput,
+          document.getElementById(
+            'emailError'
+          )
+        );
+
+        isValid = false;
+
+      }
+
+
+      /*
+       * Phone
+       */
+
+      clearFieldError(
+        phoneInput,
+        document.getElementById(
+          'phoneError'
+        )
+      );
+
 
       const phone =
-        document.getElementById('phone').value.trim();
+        normalizePhone(
+          phoneInput.value
+        );
 
-      const method =
-        signupMethod.value;
+
+      const phonePattern =
+        /^\+[1-9]\d{9,14}$/;
 
 
-      /*
-       * Basic validation
-       */
+      if (
+        !phonePattern.test(phone)
+      ) {
 
-      if (!username || !email || !phone) {
+        showFieldError(
+          phoneInput,
+          document.getElementById(
+            'phoneError'
+          )
+        );
 
-        alert('Please fill in Username, Email and Phone Number.');
+        isValid = false;
 
-        return;
       }
 
 
-      if (!method) {
+      /*
+       * Sign-up method
+       */
 
-        alert('Please select a sign-up method.');
+      const methodError =
+        document.getElementById(
+          'methodError'
+        );
 
-        return;
+
+      methodError.classList.remove(
+        'show'
+      );
+
+
+      if (
+        !signupMethodInput.value
+      ) {
+
+        methodError.classList.add(
+          'show'
+        );
+
+        isValid = false;
+
       }
 
 
+      return isValid;
+
+    }
+
+
+    /*
+     * =========================================================
+     * PUSH REGISTRATION FAILURE
+     * =========================================================
+     */
+
+    async function pushRegistrationFailure(
+      failureReason
+    ) {
+
       /*
-       * --------------------------------------------------------
-       * Generate a demo user ID
-       *
-       * This is NOT the email, phone or username.
-       * --------------------------------------------------------
+       * We can still hash the entered values
+       * for GTM/dataLayer testing.
        */
 
-      const userId =
-        'LUMA-' +
-        Date.now();
+      const username =
+        normalizeText(
+          usernameInput.value
+        );
+
+
+      const email =
+        normalizeText(
+          emailInput.value
+        );
+
+
+      const phone =
+        normalizePhone(
+          phoneInput.value
+        );
+
+
+      const hashedUsername =
+        username
+          ? await sha256(username)
+          : null;
+
+
+      const hashedEmail =
+        email
+          ? await sha256(email)
+          : null;
+
+
+      const hashedPhone =
+        phone
+          ? await sha256(phone)
+          : null;
 
 
       /*
-       * Store demo login state
-       */
-
-      localStorage.setItem(
-        'luma_logged_in',
-        'true'
-      );
-
-      localStorage.setItem(
-        'luma_user_id',
-        userId
-      );
-
-
-      /*
-       * --------------------------------------------------------
-       * IMPORTANT:
-       *
-       * Do NOT send:
-       * username
-       * email
-       * phone
-       *
-       * to GA4.
-       *
-       * Only send the sign-up method.
-       * --------------------------------------------------------
+       * Failure event
        */
 
       window.dataLayer.push({
 
-        event: 'sign_up',
+        event:
+          'registration_failure',
 
-        sign_up_method: method
+        registration_status:
+          'failure',
+
+        registration_user_data: {
+
+          sha256_username:
+            hashedUsername,
+
+          sha256_email_address:
+            hashedEmail,
+
+          sha256_phone_number:
+            hashedPhone
+
+        },
+
+        sign_up_method:
+          signupMethodInput.value || null,
+
+        failure_reason:
+          failureReason
 
       });
 
-
-      /*
-       * Optional custom event for GTM testing
-       *
-       * You can remove this if you only want
-       * the GA4 recommended sign_up event.
-       */
-
-      window.dataLayer.push({
-
-        event: 'registration_complete',
-
-        sign_up_method: method
-
-      });
+    }
 
 
-      /*
-       * Show success message
-       */
+    /*
+     * =========================================================
+     * SUBMIT FORM
+     * =========================================================
+     */
 
-      alert(
-        'Account created successfully using ' +
-        method +
-        ' sign-up.'
-      );
+    registrationForm.addEventListener(
+      'submit',
+      async function(event) {
+
+        event.preventDefault();
 
 
-      /*
-       * Redirect to account page
-       */
+        /*
+         * Clear previous status
+         */
 
-      window.location.href = 'account.html';
+        statusBox.className =
+          'registration-status';
 
-    });
+
+        statusBox.textContent =
+          '';
+
+
+        /*
+         * Validate form
+         */
+
+        const isValid =
+          validateForm();
+
+
+        /*
+         * -----------------------------------------------
+         * VALIDATION FAILURE
+         * -----------------------------------------------
+         */
+
+        if (!isValid) {
+
+
+          let reason =
+            'validation_error';
+
+
+          if (
+            !usernameInput.value.trim()
+          ) {
+
+            reason =
+              'username_missing';
+
+          }
+          else if (
+            !emailInput.value.trim()
+          ) {
+
+            reason =
+              'email_missing';
+
+          }
+          else if (
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+              .test(
+                emailInput.value.trim()
+              )
+          ) {
+
+            reason =
+              'invalid_email';
+
+          }
+          else if (
+            !/^\+[1-9]\d{9,14}$/
+              .test(
+                normalizePhone(
+                  phoneInput.value
+                )
+              )
+          ) {
+
+            reason =
+              'invalid_phone';
+
+          }
+          else if (
+            !signupMethodInput.value
+          ) {
+
+            reason =
+              'signup_method_missing';
+
+          }
+
+
+          /*
+           * Push failure event
+           */
+
+          await pushRegistrationFailure(
+            reason
+          );
+
+
+          showStatus(
+            'Registration failed: ' +
+            reason.replaceAll(
+              '_',
+              ' '
+            ),
+            'error'
+          );
+
+
+          return;
+
+        }
+
+
+        /*
+         * Disable button while processing
+         */
+
+        submitButton.disabled =
+          true;
+
+
+        submitButton.textContent =
+          'Creating Account...';
+
+
+        /*
+         * -----------------------------------------------
+         * Simulated backend processing
+         *
+         * This is intentionally included so you can test
+         * a failure that happens AFTER all fields are valid.
+         * -----------------------------------------------
+         */
+
+        await new Promise(
+          resolve =>
+            setTimeout(
+              resolve,
+              800
+            )
+        );
+
+
+        /*
+         * Simulate a 20% backend failure.
+         *
+         * Change 0.20 to 0 if you don't want
+         * random failures.
+         */
+
+        const simulatedFailure =
+          Math.random() < 0.20;
+
+
+        if (simulatedFailure) {
+
+
+          await pushRegistrationFailure(
+            'registration_server_error'
+          );
+
+
+          showStatus(
+            'Registration failed because the server could not create the account. Please try again.',
+            'error'
+          );
+
+
+          /*
+           * IMPORTANT:
+           *
+           * Do NOT clear the fields.
+           *
+           * The user can retry with the
+           * same information.
+           */
+
+          submitButton.disabled =
+            false;
+
+
+          submitButton.textContent =
+            'Create Account';
+
+
+          return;
+
+        }
+
+
+        /*
+         * =================================================
+         * SUCCESS
+         * =================================================
+         */
+
+
+        /*
+         * Get values
+         */
+
+        const username =
+          normalizeText(
+            usernameInput.value
+          );
+
+
+        const email =
+          normalizeText(
+            emailInput.value
+          );
+
+
+        const phone =
+          normalizePhone(
+            phoneInput.value
+          );
+
+
+        const signupMethod =
+          signupMethodInput.value;
+
+
+        /*
+         * Hash values using SHA-256
+         */
+
+        const hashedUsername =
+          await sha256(
+            username
+          );
+
+
+        const hashedEmail =
+          await sha256(
+            email
+          );
+
+
+        const hashedPhone =
+          await sha256(
+            phone
+          );
+
+
+        /*
+         * Create demo user ID.
+         *
+         * This is NOT PII.
+         */
+
+        const userId =
+          'LUMA-' +
+          Date.now();
+
+
+        /*
+         * Store demo login state
+         */
+
+        localStorage.setItem(
+          'luma_logged_in',
+          'true'
+        );
+
+
+        localStorage.setItem(
+          'luma_user_id',
+          userId
+        );
+
+
+        /*
+         * =================================================
+         * SUCCESS DATALAYER PUSH
+         *
+         * PII values are NOT stored directly.
+         *
+         * Only SHA-256 hashes are placed
+         * inside registration_user_data.
+         * =================================================
+         */
+
+        window.dataLayer.push({
+
+          event:
+            'sign_up',
+
+          registration_status:
+            'success',
+
+          registration_user_data: {
+
+            sha256_username:
+              hashedUsername,
+
+            sha256_email_address:
+              hashedEmail,
+
+            sha256_phone_number:
+              hashedPhone
+
+          },
+
+          sign_up_method:
+            signupMethod,
+
+          failure_reason:
+            null,
+
+          user_id:
+            userId
+
+        });
+
+
+        /*
+         * =================================================
+         * SUCCESS MESSAGE
+         * =================================================
+         */
+
+        showStatus(
+          'Account created successfully using ' +
+          signupMethod +
+          ' sign-up.',
+          'success'
+        );
+
+
+        /*
+         * Restore button
+         */
+
+        submitButton.disabled =
+          false;
+
+
+        submitButton.textContent =
+          'Create Account';
+
+
+        /*
+         * Do NOT immediately redirect.
+         *
+         * This allows you to see the event
+         * in GTM Preview / dataLayer.
+         *
+         * After testing, you can redirect
+         * to account.html here.
+         */
+
+      }
+    );
+
+
+    /*
+     * =========================================================
+     * CLEAR INDIVIDUAL ERRORS AS USER CORRECTS INPUT
+     * =========================================================
+     */
+
+    usernameInput.addEventListener(
+      'input',
+      function() {
+
+        clearFieldError(
+          usernameInput,
+          document.getElementById(
+            'usernameError'
+          )
+        );
+
+      }
+    );
+
+
+    emailInput.addEventListener(
+      'input',
+      function() {
+
+        clearFieldError(
+          emailInput,
+          document.getElementById(
+            'emailError'
+          )
+        );
+
+      }
+    );
+
+
+    phoneInput.addEventListener(
+      'input',
+      function() {
+
+        clearFieldError(
+          phoneInput,
+          document.getElementById(
+            'phoneError'
+          )
+        );
+
+      }
+    );
 
   </script>
 
 </body>
+
 </html>
 ```

@@ -1,1 +1,830 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Luma Cart | Create Account</title>
+  <meta name="description" content="Create a Luma Cart demo account.">
+
+  <!-- =========================================================
+       dataLayer
+       Keep this BEFORE the GTM container loader
+       ========================================================= -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    window.dataLayer.push({
+      user_id: localStorage.getItem('luma_logged_in') === 'true'
+        ? localStorage.getItem('luma_user_id')
+        : null,
+
+      user_type: localStorage.getItem('luma_logged_in') === 'true'
+        ? 'loggedin'
+        : 'guest',
+
+      page_type: 'registration'
+    });
+  </script>
+
+
+  <!-- =========================================================
+       Google Tag Manager
+       ========================================================= -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event:'gtm.js'
+      });
+
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),
+          dl=l!='dataLayer'?'&l='+l:'';
+
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KWVHQDHK');
+  </script>
+
+  <!-- End Google Tag Manager -->
+
+
+  <!-- =========================================================
+       Existing Luma stylesheet
+       ========================================================= -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* Registration page */
+
+    .registration-section {
+      min-height: calc(100vh - 160px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      background: #f5f2eb;
+    }
+
+    .registration-card {
+      width: 100%;
+      max-width: 500px;
+      background: #ffffff;
+      padding: 42px;
+      border-radius: 12px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    .registration-card h1 {
+      font-family: Georgia, serif;
+      font-weight: 500;
+      font-size: 38px;
+      margin: 8px 0 10px;
+    }
+
+    .registration-card .intro {
+      color: #666;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 13px 14px;
+      border: 1px solid #d5d0c5;
+      border-radius: 6px;
+      font-size: 15px;
+      background: #fff;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #222;
+    }
+
+    .signup-methods {
+      margin-top: 28px;
+      margin-bottom: 24px;
+    }
+
+    .signup-methods-title {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .method-button {
+      padding: 12px 8px;
+      border: 1px solid #d5d0c5;
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .method-button:hover {
+      border-color: #222;
+    }
+
+    .method-button.active {
+      background: #222;
+      color: #fff;
+      border-color: #222;
+    }
+
+    .registration-submit {
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    .form-note {
+      margin-top: 16px;
+      font-size: 12px;
+      color: #777;
+      line-height: 1.5;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 14px;
+    }
+
+    .login-link a {
+      color: inherit;
+      font-weight: 600;
+    }
+
+    .required {
+      color: #a33;
+    }
+
+    @media (max-width: 600px) {
+      .registration-card {
+        padding: 28px 22px;
+      }
+
+      .registration-card h1 {
+        font-size: 32px;
+      }
+
+      .method-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+
+<body data-page-type="registration">
+
+  <!-- =========================================================
+       Google Tag Manager (noscript)
+       ========================================================= -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-KWVHQDHK"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+
+
+  <!-- =========================================================
+       Announcement
+       ========================================================= -->
+  <div class="announcement">
+    Free shipping on orders over ₹2,000
+  </div>
+
+
+  <!-- =========================================================
+       Header
+       ========================================================= -->
+  <header class="site-header">
+    <div class="container header-row">
+
+      <a
+        class="brand"
+        href="index.html"
+        data-header-link="logo"
+        data-header-position="left"
+        data-page-name="registration">
+        LUMA
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+
+        <div class="nav-item">
+          <a
+            class="nav-link"
+            href="products.html?category=New%20Arrivals"
+            data-menu-click
+            data-page-name="registration"
+            data-main-menu-category="Shop"
+            data-main-menu-sub-category="Featured"
+            data-main-menu-tab="New Arrivals">
+            Shop ▾
+          </a>
+
+          <div class="dropdown">
+            <a
+              href="products.html?category=New%20Arrivals"
+              data-menu-click
+              data-page-name="registration"
+              data-main-menu-category="Shop"
+              data-main-menu-sub-category="Featured"
+              data-main-menu-tab="New Arrivals">
+              New Arrivals
+            </a>
+
+            <a
+              href="products.html?category=Apparel"
+              data-menu-click
+              data-page-name="registration"
+              data-main-menu-category="Shop"
+              data-main-menu-sub-category="Apparel"
+              data-main-menu-tab="All Apparel">
+              Apparel
+            </a>
+
+            <a
+              href="products.html?category=Home"
+              data-menu-click
+              data-page-name="registration"
+              data-main-menu-category="Shop"
+              data-main-menu-sub-category="Home"
+              data-main-menu-tab="All Home">
+              Home
+            </a>
+
+            <a
+              href="products.html?category=Accessories"
+              data-menu-click
+              data-page-name="registration"
+              data-main-menu-category="Shop"
+              data-main-menu-sub-category="Accessories"
+              data-main-menu-tab="All Accessories">
+              Accessories
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a
+            class="nav-link"
+            href="index.html#featured"
+            data-menu-click
+            data-page-name="registration"
+            data-main-menu-category="Explore"
+            data-main-menu-sub-category="Collections"
+            data-main-menu-tab="Featured">
+            Featured
+          </a>
+        </div>
+
+        <a
+          class="nav-link"
+          href="video.html"
+          data-menu-click
+          data-page-name="registration"
+          data-main-menu-category="Video Source"
+          data-main-menu-sub-category="Video"
+          data-main-menu-tab="Video Source">
+          Video Source
+        </a>
+
+        <div class="nav-item">
+          <a
+            class="nav-link"
+            href="index.html#about"
+            data-menu-click
+            data-page-name="registration"
+            data-main-menu-category="Explore"
+            data-main-menu-sub-category="Brand"
+            data-main-menu-tab="About Luma">
+            About
+          </a>
+        </div>
+
+      </nav>
+
+
+      <div class="header-actions">
+
+        <a
+          class="header-link"
+          href="products.html"
+          data-header-link="stores"
+          data-header-position="right"
+          data-page-name="registration">
+          Stores
+        </a>
+
+        <a
+          class="header-link"
+          href="account.html"
+          data-header-link="account"
+          data-header-position="right"
+          data-page-name="registration">
+          Account
+        </a>
+
+        <a
+          class="header-link"
+          href="products.html"
+          data-header-link="wishlist"
+          data-header-position="right"
+          data-page-name="registration">
+          Wishlist
+        </a>
+
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- =========================================================
+       Registration Form
+       ========================================================= -->
+  <main>
+
+    <section class="registration-section">
+
+      <div class="registration-card">
+
+        <span class="kicker">
+          Create your account
+        </span>
+
+        <h1>
+          Sign up
+        </h1>
+
+        <p class="intro">
+          Create a Luma account to continue shopping and manage your preferences.
+        </p>
+
+
+        <form id="registrationForm" novalidate>
+
+          <!-- Username -->
+          <div class="form-group">
+
+            <label for="username">
+              Username <span class="required">*</span>
+            </label>
+
+            <input
+              id="username"
+              name="username"
+              type="text"
+              placeholder="Enter your username"
+              autocomplete="username"
+              required>
+
+          </div>
+
+
+          <!-- Email -->
+          <div class="form-group">
+
+            <label for="email">
+              Email <span class="required">*</span>
+            </label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required>
+
+          </div>
+
+
+          <!-- Phone -->
+          <div class="form-group">
+
+            <label for="phone">
+              Phone Number <span class="required">*</span>
+            </label>
+
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="+91 9876543210"
+              autocomplete="tel"
+              required>
+
+          </div>
+
+
+          <!-- Sign Up Method -->
+          <div class="signup-methods">
+
+            <span class="signup-methods-title">
+              Sign-up method <span class="required">*</span>
+            </span>
+
+            <div class="method-grid">
+
+              <button
+                type="button"
+                class="method-button"
+                data-signup-method="Email">
+                Email
+              </button>
+
+              <button
+                type="button"
+                class="method-button"
+                data-signup-method="Google">
+                Google
+              </button>
+
+              <button
+                type="button"
+                class="method-button"
+                data-signup-method="Facebook">
+                Facebook
+              </button>
+
+            </div>
+
+            <!-- Hidden field to store selected method -->
+            <input
+              type="hidden"
+              id="signupMethod"
+              name="signup_method"
+              value="">
+
+          </div>
+
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="btn registration-submit">
+            Create Account
+          </button>
+
+
+          <p class="form-note">
+            Demo registration page for GA4 and GTM testing.
+            Personal information entered here is not sent to Google Analytics.
+          </p>
+
+        </form>
+
+
+        <div class="login-link">
+          Already have an account?
+          <a href="login.html">Log in</a>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       Footer
+       ========================================================= -->
+  <footer class="site-footer">
+
+    <div class="container footer-grid">
+
+      <div>
+        <div class="brand">LUMA</div>
+
+        <p style="color:#bcb5a6;font-size:14px;max-width:280px;">
+          A small ecommerce-style demo built for analytics implementation and QA.
+        </p>
+      </div>
+
+
+      <div>
+        <p class="footer-title">Useful Links</p>
+
+        <a
+          class="footer-link"
+          href="products.html"
+          data-footer-link="Shipping"
+          data-footer-position="1"
+          data-footer-section="Useful Links"
+          data-page-name="registration">
+          Shipping
+        </a>
+
+        <a
+          class="footer-link"
+          href="products.html"
+          data-footer-link="Returns"
+          data-footer-position="2"
+          data-footer-section="Useful Links"
+          data-page-name="registration">
+          Returns
+        </a>
+
+        <a
+          class="footer-link"
+          href="products.html"
+          data-footer-link="Sizing"
+          data-footer-position="3"
+          data-footer-section="Useful Links"
+          data-page-name="registration">
+          Sizing
+        </a>
+      </div>
+
+
+      <div>
+        <p class="footer-title">Information</p>
+
+        <a
+          class="footer-link"
+          href="index.html#about"
+          data-footer-link="About Us"
+          data-footer-position="1"
+          data-footer-section="Information"
+          data-page-name="registration">
+          About Us
+        </a>
+
+        <a
+          class="footer-link"
+          href="account.html"
+          data-footer-link="Account"
+          data-footer-position="2"
+          data-footer-section="Information"
+          data-page-name="registration">
+          Account
+        </a>
+
+        <a
+          class="footer-link"
+          href="login.html"
+          data-footer-link="Login"
+          data-footer-position="3"
+          data-footer-section="Information"
+          data-page-name="registration">
+          Login
+        </a>
+      </div>
+
+
+      <div>
+        <p class="footer-title">Contact Us</p>
+
+        <a
+          class="footer-link"
+          href="mailto:hello@example.com"
+          data-footer-link="Email"
+          data-footer-position="1"
+          data-footer-section="Contact Us"
+          data-page-name="registration">
+          Email
+        </a>
+
+        <a
+          class="footer-link"
+          href="tel:+910000000000"
+          data-footer-link="Phone"
+          data-footer-position="2"
+          data-footer-section="Contact Us"
+          data-page-name="registration">
+          Phone
+        </a>
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+      <div class="container">
+        © 2026 Luma Cart demo
+      </div>
+    </div>
+
+  </footer>
+
+
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite">
+  </div>
+
+
+  <!-- =========================================================
+       Registration JavaScript
+       ========================================================= -->
+  <script>
+
+    const registrationForm =
+      document.getElementById('registrationForm');
+
+    const methodButtons =
+      document.querySelectorAll('.method-button');
+
+    const signupMethod =
+      document.getElementById('signupMethod');
+
+
+    /*
+     * ----------------------------------------------------------
+     * Select Sign-up Method
+     * ----------------------------------------------------------
+     */
+
+    methodButtons.forEach(function(button) {
+
+      button.addEventListener('click', function() {
+
+        // Remove active state from all buttons
+        methodButtons.forEach(function(btn) {
+          btn.classList.remove('active');
+        });
+
+        // Activate clicked button
+        button.classList.add('active');
+
+        // Store selected method
+        signupMethod.value =
+          button.getAttribute('data-signup-method');
+
+      });
+
+    });
+
+
+    /*
+     * ----------------------------------------------------------
+     * Registration Submit
+     * ----------------------------------------------------------
+     */
+
+    registrationForm.addEventListener('submit', function(event) {
+
+      event.preventDefault();
+
+
+      const username =
+        document.getElementById('username').value.trim();
+
+      const email =
+        document.getElementById('email').value.trim();
+
+      const phone =
+        document.getElementById('phone').value.trim();
+
+      const method =
+        signupMethod.value;
+
+
+      /*
+       * Basic validation
+       */
+
+      if (!username || !email || !phone) {
+
+        alert('Please fill in Username, Email and Phone Number.');
+
+        return;
+      }
+
+
+      if (!method) {
+
+        alert('Please select a sign-up method.');
+
+        return;
+      }
+
+
+      /*
+       * --------------------------------------------------------
+       * Generate a demo user ID
+       *
+       * This is NOT the email, phone or username.
+       * --------------------------------------------------------
+       */
+
+      const userId =
+        'LUMA-' +
+        Date.now();
+
+
+      /*
+       * Store demo login state
+       */
+
+      localStorage.setItem(
+        'luma_logged_in',
+        'true'
+      );
+
+      localStorage.setItem(
+        'luma_user_id',
+        userId
+      );
+
+
+      /*
+       * --------------------------------------------------------
+       * IMPORTANT:
+       *
+       * Do NOT send:
+       * username
+       * email
+       * phone
+       *
+       * to GA4.
+       *
+       * Only send the sign-up method.
+       * --------------------------------------------------------
+       */
+
+      window.dataLayer.push({
+
+        event: 'sign_up',
+
+        sign_up_method: method
+
+      });
+
+
+      /*
+       * Optional custom event for GTM testing
+       *
+       * You can remove this if you only want
+       * the GA4 recommended sign_up event.
+       */
+
+      window.dataLayer.push({
+
+        event: 'registration_complete',
+
+        sign_up_method: method
+
+      });
+
+
+      /*
+       * Show success message
+       */
+
+      alert(
+        'Account created successfully using ' +
+        method +
+        ' sign-up.'
+      );
+
+
+      /*
+       * Redirect to account page
+       */
+
+      window.location.href = 'account.html';
+
+    });
+
+  </script>
+
+</body>
+</html>
+```

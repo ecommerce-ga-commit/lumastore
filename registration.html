@@ -3,204 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luma Cart | Everyday goods, thoughtfully chosen</title>
+  <meta name="description" content="A simple ecommerce demo website for GA4 and GTM testing.">
 
-  <title>Create Account | Luma Cart</title>
-  <meta
-    name="description"
-    content="Create your Luma Cart account."
-  >
-
-  <!-- =========================================
-       DATA LAYER
-  ========================================== -->
+  <!-- dataLayer: keep this before the GTM container loader -->
   <script>
     window.dataLayer = window.dataLayer || [];
-
     window.dataLayer.push({
-      user_id: localStorage.getItem('user_id') || null,
-      user_type: localStorage.getItem('user_id') ? 'loggedin' : 'guest',
-      page_type: 'registration'
+      user_id: localStorage.getItem('luma_logged_in') === 'true' ? localStorage.getItem('luma_user_id') : null,
+      user_type: localStorage.getItem('luma_logged_in') === 'true' ? 'loggedin' : 'guest',
+      page_type: 'homepage'
     });
   </script>
 
-  <!-- =========================================
-       GOOGLE TAG MANAGER
-  ========================================== -->
-  <script>
-    (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event:'gtm.js'
-      });
+  
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KWVHQDHK');</script>
+  
+<!-- End Google Tag Manager -->
 
-      var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),
-          dl=l!='dataLayer'?'&l='+l:'';
-
-      j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-
-      f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KWVHQDHK');
-  </script>
-
-  <!-- Existing Luma stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
-
-  <style>
-    /* =========================================
-       REGISTRATION PAGE
-    ========================================== */
-
-    .registration-section {
-      min-height: calc(100vh - 180px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 60px 20px;
-      background: #f8f8f8;
-    }
-
-    .registration-card {
-      width: 100%;
-      max-width: 500px;
-      background: #ffffff;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-    }
-
-    .registration-card h1 {
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .registration-subtitle {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #666;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 13px 14px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-
-    .form-group input:focus {
-      outline: none;
-      border-color: #222;
-    }
-
-    .signup-method-title {
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .signup-methods {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 25px;
-    }
-
-    .signup-method {
-      flex: 1;
-      min-width: 100px;
-      padding: 12px;
-      border: 1px solid #ccc;
-      background: #fff;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .signup-method:hover {
-      border-color: #222;
-    }
-
-    .signup-method.active {
-      background: #222;
-      color: #fff;
-      border-color: #222;
-    }
-
-    .create-account-btn {
-      width: 100%;
-      padding: 14px;
-      background: #222;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .create-account-btn:hover {
-      opacity: 0.9;
-    }
-
-    .create-account-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .message {
-      display: none;
-      padding: 12px;
-      margin-bottom: 20px;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-
-    .error-message {
-      background: #ffeaea;
-      color: #b00020;
-      border: 1px solid #ffbaba;
-    }
-
-    .success-message {
-      background: #eaf8ed;
-      color: #187a2f;
-      border: 1px solid #b8e6c1;
-    }
-
-    .login-link {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .login-link a {
-      color: #222;
-      font-weight: 600;
-      text-decoration: underline;
-    }
-
-    @media (max-width: 600px) {
-      .registration-card {
-        padding: 25px 20px;
-      }
-
-      .signup-method {
-        min-width: 80px;
-      }
-    }
-  </style>
+  <script src="assets/js/app.js" defer></script>
 </head>
 
 <body>
